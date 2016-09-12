@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+
 // flow machine was created by Serious Games Interactive 2011
 // Created with Unity version 3.3.0f4
 //
@@ -65,7 +67,7 @@ void vert (inout appdata_full v) {
 	
 	v.vertex.y += hoffset * _WaveH * _FlowSpeed;
 	
-	v.normal = mul((float3x3)_World2Object, float3(0,1,0));
+	v.normal = mul((float3x3)unity_WorldToObject, float3(0,1,0));
 }
 
 void surf (Input IN, inout SurfaceOutput o) {
@@ -160,7 +162,7 @@ void vert (inout appdata_full v) {
 	
 	v.vertex.y += hoffset * _WaveH * _FlowSpeed;
 	
-	v.normal = mul((float3x3)_World2Object, float3(0,1,0));
+	v.normal = mul((float3x3)unity_WorldToObject, float3(0,1,0));
 }
 
 void surf (Input IN, inout SurfaceOutput o) {

@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced '_World2Object' with 'unity_WorldToObject'
+
 // flow machine was created by Serious Games Interactive 2011
 // Created with Unity version 3.3.0f4
 //
@@ -33,10 +35,10 @@ struct Input {
 };
 
 void vert (inout appdata_full v) {
-	float3 poslimit = mul(_World2Object, float4(0,300,0,1)).xyz;
-	v.vertex.y += mul((float3x3)_World2Object, float3(0,1,0)).y * v.color.b * 8.5;
+	float3 poslimit = mul(unity_WorldToObject, float4(0,300,0,1)).xyz;
+	v.vertex.y += mul((float3x3)unity_WorldToObject, float3(0,1,0)).y * v.color.b * 8.5;
 	v.vertex.y = min( v.vertex.y, poslimit.y );
-	v.normal = mul((float3x3)_World2Object, float3(0,1,0));
+	v.normal = mul((float3x3)unity_WorldToObject, float3(0,1,0));
 }
 
 uniform sampler2D _MainTex, _BumpMap, _NoiseMap;
